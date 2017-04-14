@@ -1,6 +1,8 @@
 var http = require('http')
 var parseUrl = require('parseurl')
 var send = require('send')
+var open = require('open')
+var port = 8000
 
 var serv = function(req, res) {
   var path = parseUrl(req).pathname;
@@ -28,7 +30,8 @@ var app = http.createServer(function onRequest (req, res) {
     serv(req, res);
   }
 
-}).listen(8000)
+}).listen(port)
 
-console.log('Server started at  http://localhost:8000')
+console.log('Server started at  http://localhost:' + port)
+open("http://localhost:" + port)
 
